@@ -1,74 +1,84 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_gravity="top"
-    android:orientation="vertical"
-    tools:context=".MainActivity">
+<layout>
 
-    <TextView
-        android:id="@+id/name_text"
+    <data>
+        <variable
+            name="myName"
+            type="com.example.aboutme.MyName" />
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_margin="0dp"
-        android:baselineAligned="false"
-        android:gravity="center_horizontal|center_vertical"
-        android:padding="8dp"
-        android:text="@string/name"
-        android:textAllCaps="false" />
-
-    <EditText
-        android:id="@+id/nickname_edit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:ems="10"
-        android:gravity="center_horizontal"
-        android:inputType="textShortMessage|textPersonName|text|textEmailAddress"
-        android:text="@string/what_is_your_nickname"
-        android:textColor="@android:color/darker_gray" />
-
-    <TextView
-        android:id="@+id/nickname_text"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="center_horizontal"
-        android:textAlignment="center"
-        tools:visibility="gone" />
-
-    <Button
-        android:id="@+id/done_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:fontFamily="@font/roboto"
-        android:text="@string/done"
-        app:backgroundTint="@android:color/holo_green_light" />
-
-    <ImageView
-        android:id="@+id/star_image"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:contentDescription="@string/Yellowstar"
-        android:padding="16dp"
-        app:srcCompat="@android:drawable/btn_star_big_on" />
-
-    <ScrollView
-        android:id="@+id/bio_scroll"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
 
         <TextView
-            android:id="@+id/bio_text"
+            android:id="@+id/name_text"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:layout_margin="0dp"
+            android:baselineAligned="false"
+            android:gravity="center_horizontal|center_vertical"
+            android:padding="8dp"
+            android:text="@={myName.name}"
+            android:textAllCaps="false" />
+
+        <EditText
+            android:id="@+id/nickname_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:lineSpacingMultiplier="1.2"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:text="@string/bio" />
-    </ScrollView>
+            android:autofillHints=""
+            android:ems="10"
+            android:gravity="center_horizontal"
+            android:inputType="textShortMessage|textPersonName|text|textEmailAddress"
+            android:text="@string/what_is_your_nickname"
+            android:textColor="@android:color/darker_gray" />
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/nickname_text"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center_horizontal"
+            android:textAlignment="center"
+            android:text="@={myName.nickname}"
+            tools:visibility="gone" />
+
+        <Button
+            android:id="@+id/done_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/roboto"
+            android:text="@string/done"
+            app:backgroundTint="@android:color/holo_green_light" />
+
+        <ImageView
+            android:id="@+id/star_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:contentDescription="@string/Yellowstar"
+            android:padding="16dp"
+            app:srcCompat="@android:drawable/btn_star_big_on" />
+
+        <ScrollView
+            android:id="@+id/bio_scroll"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/bio_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingMultiplier="1.2"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp"
+                android:text="@string/bio" />
+        </ScrollView>
+
+    </LinearLayout>
+</layout>
